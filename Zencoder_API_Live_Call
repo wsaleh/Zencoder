@@ -1,0 +1,129 @@
+curl --header "Zencoder-Api-Key: ZCAPIKEY" \
+     --data '
+ 
+{
+  "live_stream": true,
+  "outputs": [
+    {
+      "label": "rtmp_300",
+      "format": "flv",
+      "size": "480x270",
+      "video_bitrate": 300,
+      "url": "rtmp://RTMPUSERNAME:RTMPPASSWORD@p.epEPCODE.i.akamaientrypoint.net/EntryPoint/EVENTNAME_01_300@EPCODE",
+      "audio_codec": "aac",
+      "speed": 2,
+      "video_codec": "h264"
+    },
+    {
+      "label": "rtmp_650",
+      "format": "flv",
+      "size": "640x360",
+      "video_bitrate": 650,
+      "url": "rtmp://RTMPUSERNAME:RTMPPASSWORD@p.epEPCODE.i.akamaientrypoint.net/EntryPoint/EVENTNAME_01_650@EPCODE",
+      "audio_codec": "aac",
+      "speed": 2,
+      "video_codec": "h264"
+    },
+    {
+      "label": "rtmp_900",
+      "format": "flv",
+      "size": "640x360",
+      "video_bitrate": 900,
+      "url": "rtmp://RTMPUSERNAME:RTMPPASSWORD@p.epEPCODE.i.akamaientrypoint.net/EntryPoint/EVENTNAME_01_900@EPCODE",
+      "audio_codec": "aac",
+      "speed": 2,
+      "video_codec": "h264"
+    },
+    {
+      "label": "rtmp_1200",
+      "format": "flv",
+      "size": "1280x720",
+      "video_bitrate": 1200,
+      "url": "rtmp://RTMPUSERNAME:RTMPPASSWORD@p.epEPCODE.i.akamaientrypoint.net/EntryPoint/EVENTNAME_01_1200@EPCODE",
+      "audio_codec": "aac",
+      "speed": 2,
+      "video_codec": "h264"
+    },
+    {
+      "label": "rtmp_2000",
+      "format": "flv",
+      "size": "1280x720",
+      "video_bitrate": 2000,
+      "url": "rtmp://RTMPUSERNAME:RTMPPASSWORD@p.epEPCODE.i.akamaientrypoint.net/EntryPoint/EVENTNAME_01_2000@EPCODE",
+      "audio_codec": "aac",
+      "speed": 2,
+      "video_codec": "h264"
+    },
+    
+    {
+      "label": "hls_300",
+      "size": "480x270",
+      "video_bitrate": 300,
+      "url": "http://post.bcoveliveios-i.akamaihd.net/HLSCODE/ACCOUNTID/EVENTNAME_ios_300.m3u8",
+      "type": "segmented",
+      "audio_codec": "aac",
+      "speed": 2,
+      "video_codec": "h264",
+      "live_stream": true
+    },
+    {
+      "label": "hls_650",
+      "size": "640x360",
+      "video_bitrate": 650,
+      "url": "http://post.bcoveliveios-i.akamaihd.net/HLSCODE/ACCOUNTID/EVENTNAME_ios_650.m3u8",
+      "type": "segmented",
+      "audio_codec": "aac",
+      "speed": 2,
+      "video_codec": "h264",
+      "live_stream": true
+    },
+    {
+      "label": "hls_900",
+      "size": "640x360",
+      "video_bitrate": 900,
+      "url": "http://post.bcoveliveios-i.akamaihd.net/HLSCODE/ACCOUNTID/EVENTNAME_ios_900.m3u8",
+      "type": "segmented",
+      "audio_codec": "aac",
+      "speed": 2,
+      "video_codec": "h264",
+      "live_stream": true
+    },
+        {
+      "label": "hls_1200",
+      "size": "1280x720",
+      "video_bitrate": 1200,
+      "url": "http://post.bcoveliveios-i.akamaihd.net/HLSCODE/ACCOUNTID/EVENTNAME_ios_1200.m3u8",
+      "type": "segmented",
+      "audio_codec": "aac",
+      "speed": 2,
+      "video_codec": "h264",
+      "live_stream": true
+    },
+ 
+    
+    {
+      "url": "http://post.bcoveliveios-i.akamaihd.net/HLSCODE/ACCOUNTID/index.m3u8",
+      "type": "playlist",
+      "streams": [
+        {
+          "bandwidth": 300,
+          "path": "EVENTNAME_ios_300.m3u8"
+        },
+        {
+          "bandwidth": 650,
+          "path": "EVENTNAME_ios_650.m3u8"
+        },
+        {
+          "bandwidth": 900,
+          "path": "EVENTNAME_ios_900.m3u8"
+        },
+        {
+          "bandwidth": 1200,
+          "path": "EVENTNAME_ios_1200.m3u8"
+        }
+      ]
+    }
+  ]
+}
+' \
+     https://app.zencoder.com/api/v2/jobs
